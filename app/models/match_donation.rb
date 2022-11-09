@@ -5,7 +5,7 @@ class MatchDonation < ApplicationRecord
 
   scope :active, -> { where(active: true) }
 
-  validate :either_per_donor_or_per_donation
+  validate :either_per_donor_or_per_dollar
 
   def pay_match_donation(single_donation)
     if per_donor_amount
@@ -51,7 +51,7 @@ class MatchDonation < ApplicationRecord
     max_amount - generated_donations.sum(:amount)
   end
 
-  def either_per_donor_or_per_donation
+  def either_per_donor_or_per_dollar
     if per_donor_amount && per_dollar_amount
       errors.add(:per_donor_amount, "provide either per_donor_amount or per_dollar_amount not both")
     end

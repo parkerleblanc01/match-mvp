@@ -2,8 +2,16 @@
 
 <%= render @match_donation %>
 
+<div id="generated_donations">
+  <strong>Donations Paid So Far:</strong>
+  <% @match_donation.generated_donations.each do |gd| %>
+    <p>
+      <%= link_to "#{gd.amount} donated on #{gd.created_at} click to view trigging donation", single_donation_path(id: gd.single_donation.id) %>
+    </p>
+  <% end %>
+</div>
+
 <div>
-  <%= link_to "Edit this match donation", edit_match_donation_path(@match_donation) %> |
   <%= link_to "Back to match donations", match_donations_path %>
 
   <%= button_to "Destroy this match donation", @match_donation, method: :delete %>

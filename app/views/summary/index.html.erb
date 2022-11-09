@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Donations Summary</h1>
+
+<div id="single_donations">
+  <% @donation_summary.each do |donation| %>
+    <%= render "donation", donation: donation %>
+    <% if donation.class.to_s == "GeneratedDonation" %>
+      <p>
+        <%= link_to "Show this match donation", match_donation_path(id: donation.match_donation.id) %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to "Show this single donation", single_donation_path(id: donation.id) %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Go to single donations", single_donations_path %><br>
+<%= link_to "Go to match donations", match_donations_path %>

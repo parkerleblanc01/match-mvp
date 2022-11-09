@@ -1,0 +1,6 @@
+<%= render "layouts/donor", donor: donation.class.to_s == "GeneratedDonation" ? donation.match_donation.donor : donation&.donor %>
+
+<p>
+  <strong>Amount:</strong>
+  <%= donation.amount %>
+</p>

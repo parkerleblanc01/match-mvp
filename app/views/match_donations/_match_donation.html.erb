@@ -17,8 +17,13 @@
   </p>
 
   <p>
-    <strong>Per donation amount:</strong>
+    <strong>Per dollar amount:</strong>
     <%= match_donation.per_dollar_amount %>
+  </p>
+
+  <p>
+    <strong>Total Donated:</strong>
+    <%= (match_donation.donation_amount_remaining - match_donation.max_amount).abs %>
   </p>
 
 </div>
