@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_234159) do
   create_table "match_donations", force: :cascade do |t|
     t.bigint "donor_id", null: false
     t.float "max_amount"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.float "per_donor_amount"
     t.float "per_donation_amount"
     t.datetime "created_at", null: false
