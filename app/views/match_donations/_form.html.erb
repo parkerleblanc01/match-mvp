@@ -11,18 +11,13 @@
     </div>
   <% end %>
 
-  <%= render "layouts/donor_form", form: form %>
+  <%= render "layouts/donor_form", form: form, donor: match_donation&.donor %>
 
   <hr>
 
   <div>
     <%= form.label :max_amount, style: "display: block" %>
     <%= form.text_field :max_amount %>
-  </div>
-
-  <div>
-    <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
   </div>
 
   <div>

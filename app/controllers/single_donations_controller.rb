@@ -21,14 +21,14 @@ class SingleDonationsController < ApplicationController
 
   # POST /single_donations or /single_donations.json
   def create
-    @donor = Donor.create_or_update(
+    donor = Donor.create_or_update(
       first_name: donar_params[:first_name],
       last_name: donar_params[:last_name],
       email: donar_params[:email],
     )
 
     @single_donation = SingleDonation.new(single_donation_params)
-    @single_donation.donor = @donor
+    @single_donation.donor = donor
 
     respond_to do |format|
       if @single_donation.save
@@ -43,6 +43,14 @@ class SingleDonationsController < ApplicationController
 
   # PATCH/PUT /single_donations/1 or /single_donations/1.json
   def update
+    donor = Donor.create_or_update(
+      first_name: donar_params[:first_name],
+      last_name: donar_params[:last_name],
+      email: donar_params[:email],
+    )
+
+    @single_donation.donor = donor
+
     respond_to do |format|
       if @single_donation.update(single_donation_params)
         format.html { redirect_to single_donation_url(@single_donation), notice: "Single donation was successfully updated." }

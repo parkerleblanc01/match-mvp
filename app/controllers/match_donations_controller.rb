@@ -21,7 +21,14 @@ class MatchDonationsController < ApplicationController
 
   # POST /match_donations or /match_donations.json
   def create
+    @donor = Donor.create_or_update(
+      first_name: donar_params[:first_name],
+      last_name: donar_params[:last_name],
+      email: donar_params[:email],
+    )
     @match_donation = MatchDonation.new(match_donation_params)
+
+    @match_donation.donor = @donor
 
     respond_to do |format|
       if @match_donation.save
@@ -36,6 +43,14 @@ class MatchDonationsController < ApplicationController
 
   # PATCH/PUT /match_donations/1 or /match_donations/1.json
   def update
+    donor = Donor.create_or_update(
+      first_name: donar_params[:first_name],
+      last_name: donar_params[:last_name],
+      email: donar_params[:email],
+    )
+
+    @match_donation.donor = donor
+
     respond_to do |format|
       if @match_donation.update(match_donation_params)
         format.html { redirect_to match_donation_url(@match_donation), notice: "Match donation was successfully updated." }
@@ -66,5 +81,9 @@ class MatchDonationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def match_donation_params
       params.require(:match_donation).permit(:donor_id, :max_amount, :active, :per_donor_amount, :per_donation_amount)
+    end
+
+    def donar_params
+      params.require(:match_donation).permit(:first_name, :last_name, :email)
     end
 end
