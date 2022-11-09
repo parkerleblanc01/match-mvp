@@ -7,7 +7,7 @@ class SummaryController < ApplicationController
     generated_donations = GeneratedDonation.all
     summary.append(*generated_donations)
 
-    summary.sort { |a,b| a.created_at <=> b.created_at }
+    summary = summary.sort { |a,b| a.created_at <=> b.created_at }
     
     @donation_summary = summary
   end
