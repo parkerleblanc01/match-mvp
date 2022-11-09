@@ -65,3 +65,7 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+	gem 'database_cleaner', '~> 2.0.1'
+  gem 'capybara', '~> 3.37.1'
+end
