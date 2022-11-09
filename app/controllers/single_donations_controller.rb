@@ -32,6 +32,7 @@ class SingleDonationsController < ApplicationController
 
     respond_to do |format|
       if @single_donation.save
+        @single_donation.pay_corresponding_match_donations
         format.html { redirect_to single_donation_url(@single_donation), notice: "Single donation was successfully created." }
         format.json { render :show, status: :created, location: @single_donation }
       else
