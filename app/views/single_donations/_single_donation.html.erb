@@ -1,0 +1,9 @@
+<div id="<%= dom_id single_donation %>">
+  <%= render "layouts/donor", donor: single_donation&.donor %>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= single_donation.amount %>
+  </p>
+
+</div>

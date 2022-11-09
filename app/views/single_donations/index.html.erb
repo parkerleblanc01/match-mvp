@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Single donations</h1>
+
+<div id="single_donations">
+  <% @single_donations.each do |single_donation| %>
+    <%= render single_donation %>
+    <p>
+      <%= link_to "Show this single donation", single_donation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New single donation", new_single_donation_path %>

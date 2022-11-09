@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @match_donation %>
+
+<div>
+  <%= link_to "Edit this match donation", edit_match_donation_path(@match_donation) %> |
+  <%= link_to "Back to match donations", match_donations_path %>
+
+  <%= button_to "Destroy this match donation", @match_donation, method: :delete %>
+</div>

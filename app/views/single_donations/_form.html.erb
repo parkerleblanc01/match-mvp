@@ -1,0 +1,26 @@
+<%= form_with(model: single_donation) do |form| %>
+  <% if single_donation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(single_donation.errors.count, "error") %> prohibited this single_donation from being saved:</h2>
+
+      <ul>
+        <% single_donation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render "layouts/donor_form", form: form, donor: single_donation&.donor %>
+
+  <hr>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
