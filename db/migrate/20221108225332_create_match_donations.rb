@@ -5,7 +5,7 @@ class CreateMatchDonations < ActiveRecord::Migration[7.0]
       t.float :max_amount
       t.boolean :active, default: true
       t.float :per_donor_amount
-      t.float :per_donation_amount
+      t.float :per_dollar_amount
 
       t.timestamps
     end

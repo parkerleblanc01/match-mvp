@@ -80,7 +80,7 @@ class MatchDonationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_donation_params
-      params.require(:match_donation).permit(:donor_id, :max_amount, :active, :per_donor_amount, :per_donation_amount)
+      params.require(:match_donation).permit(:donor_id, :max_amount, :active, :per_donor_amount, :per_dollar_amount)
     end
 
     def donar_params

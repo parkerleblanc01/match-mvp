@@ -7,7 +7,7 @@ RSpec.describe "match_donations/edit", type: :view do
       max_amount: 1.5,
       active: false,
       per_donor_amount: 1.5,
-      per_donation_amount: 1.5
+      per_dollar_amount: 1.5
     )
   }
 
@@ -28,7 +28,7 @@ RSpec.describe "match_donations/edit", type: :view do
 
       assert_select "input[name=?]", "match_donation[per_donor_amount]"
 
-      assert_select "input[name=?]", "match_donation[per_donation_amount]"
+      assert_select "input[name=?]", "match_donation[per_dollar_amount]"
     end
   end
 end

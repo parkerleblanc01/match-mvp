@@ -7,7 +7,7 @@ RSpec.describe "match_donations/show", type: :view do
       max_amount: 2.5,
       active: false,
       per_donor_amount: 3.5,
-      per_donation_amount: 4.5
+      per_dollar_amount: 4.5
     ))
   end
 
